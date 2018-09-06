@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group 'com.wayz.ai'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8'
+    // https://mvnrepository.com/artifact/com.alibaba/fastjson
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.49'
+    // https://mvnrepository.com/artifact/com.datastax.cassandra/cassandra-driver-core
+    compile group: 'com.datastax.cassandra', name: 'cassandra-driver-core', version: '3.6.0'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.4.RELEASE'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.8.0-beta2'
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-pool2
+    compile group: 'org.apache.commons', name: 'commons-pool2', version: '2.6.0'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.8.0-beta2'
+
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.0.4.RELEASE'
+}
