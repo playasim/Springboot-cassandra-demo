@@ -6,13 +6,14 @@ import org.apache.commons.pool2.impl.GenericObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 
 public class CassandraSessionPool extends GenericObjectPool<Session> {
 	private static final Logger logger = LoggerFactory.getLogger(CassandraSessionPool.class);
 	
 	private static CassandraSessionFactory factory;
-	private static CassandraSessionPool    sessionPool;
-	
+	private static CassandraSessionPool sessionPool;
+
 	public static CassandraSessionPool getInstance() {
 		return sessionPool;
 	}
@@ -23,8 +24,7 @@ public class CassandraSessionPool extends GenericObjectPool<Session> {
 	
     public static void initSessionPool() {
     	CassandraConfig config = new CassandraConfig();
-    	
-    	String   contactPointsStr = CassandraConfigurer.getString(Cassandra.CONTACT_POINTS);
+		String   contactPointsStr = CassandraConfigurer.getString(Cassandra.CONTACT_POINTS);
 		Integer  port             = CassandraConfigurer.getInteger(Cassandra.PORT);
 		Boolean  auth             = CassandraConfigurer.getBoolean(Cassandra.AUTH);
 		String   username         = CassandraConfigurer.getString(Cassandra.USERNAME);
